@@ -109,6 +109,7 @@ class Player {
  First it checks if any enemies are on the same row as the Player
  For those on the same row, it checks if any of them are actually touching the player
  Note, not being on the same square, but actually touching the player
+ If there is a collision, the difficulty (level) is decreased
 */
 function checkCollisions() {
   const enemiesOnRow = allEnemies.filter(
