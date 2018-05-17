@@ -89,6 +89,7 @@ class Player {
         resetPlayer();
       },100);
       this.level += 1;
+      updateLevel(this);
       createEnemies(this.level);
       this.winner = false;
     }
@@ -119,9 +120,16 @@ function checkCollisions() {
     if (enemy.x >= player.x - 79 && enemy.x <= player.x + 79) {
       resetPlayer();
       player.level = player.level > 1 ? player.level - 1 : player.level;
+      updateLevel(player);
       createEnemies(player.level);
     }
   });
+}
+
+// Updates the span for level
+function updateLevel(player){
+  let level = document.querySelector('.level span');
+  level.innerText = player.level;
 }
 
 // Always take the player to the last row, but randomize the column it appears
