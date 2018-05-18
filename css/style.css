@@ -1,9 +1,11 @@
 body {
     text-align: center;
-    background-image: url(../images/arcade-controller.jpg);
+    background-image: url(../images/chess.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    color: rgb(230,230,230);
+    font-size: 18px;
 }
 
 .logo {
@@ -18,13 +20,15 @@ h1 {
     margin-top: 5px;
     margin-bottom: 0;
     text-align: center;
-    color: rgb(230,230,230);
     text-shadow: 2px 3px 1px rgb(60,60,60);
 }
 
 .level {
-  font-size: 18px;
-  color: rgb(230,230,230);
+  display: flex;
   text-shadow: 2px 3px 1px rgb(60,60,60);
+  margin: auto;
+  width: 150px;
   margin-top: 15px;
+  position: absolute;
+  left: 50%;
 }

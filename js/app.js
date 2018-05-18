@@ -1,3 +1,5 @@
+'use strict;'
+
 // Enemies our player must avoid
 class Enemy {
     constructor(){
@@ -83,13 +85,11 @@ class Player {
   // adding an extra enemy
   isWinner() {
     if (this.y === 1) {
-      console.log('WINNERRRRR!!!');
       this.winner = true;
-      setTimeout(function () {
-        resetPlayer();
-      },100);
-      this.level += 1;
-      updateLevel(this);
+      setTimeout(function (player) {
+        player.resetPlayer();
+      },100, this);
+      updateLevel(this, 'win');
       createEnemies(this.level);
       this.winner = false;
     }
@@ -98,7 +98,13 @@ class Player {
   // Marks the player for movement in a direction, if the player is a winner it ignores movement
   // this just to add extra time to show the player up top but to not allow it to move once it won
   handleInput(key) {
-    player.move = player.winner === false ? key : '';
+    this.move = this.winner === false ? key : '';
+  }
+
+  // Always take the player to the last row, but randomize the column it appears
+  resetPlayer() {
+    this.x = (Math.floor(Math.random() * (4 - 0 + 1)) + 0) * 101;
+    this.y = 6;
   }
 
   render() {
@@ -118,24 +124,34 @@ function checkCollisions() {
   );
   enemiesOnRow.forEach(function (enemy) {
     if (enemy.x >= player.x - 79 && enemy.x <= player.x + 79) {
-      resetPlayer();
-      player.level = player.level > 1 ? player.level - 1 : player.level;
-      updateLevel(player);
+      player.resetPlayer();
+      updateLevel(player, 'lose');
       createEnemies(player.level);
     }
   });
 }
 
 // Updates the span for level
-function updateLevel(player){
-  let level = document.querySelector('.level span');
-  level.innerText = player.level;
-}
+function updateLevel(player, winOrLose){
+  let level = document.querySelector('.level');
+  let levelText = document.querySelector('.level span');
+  if (winOrLose === 'win') {
+    player.level += 1;
+    levelText.innerText = player.level;
+    level.classList.toggle("bounce");
+    setTimeout(function () {
+      level.classList.toggle("bounce");
+    },1200);
+  }
+  else {
+    player.level = player.level > 1 ? player.level - 1 : player.level;
+    levelText.innerText = player.level;
+    level.classList.toggle("shake");
+    setTimeout(function () {
+      level.classList.toggle("shake");
+    },1200);
+  }
 
-// Always take the player to the last row, but randomize the column it appears
-function resetPlayer() {
-  player.x = (Math.floor(Math.random() * (4 - 0 + 1)) + 0) * 101;
-  player.y = 6;
 }
 
 // Udacity: Now instantiate your objects.

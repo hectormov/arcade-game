@@ -1,0 +1,64 @@
+@keyframes shake {
+
+  10%, 90% {
+    transform: translate3d(-10px, 0, 0) rotate(0deg) skewX(0deg);
+  }
+  20%, 80% {
+    transform: translate3d(20px, 0, 0) rotate(-5deg) skewX(-5deg);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-40px, 0, 0) rotate(5deg) skewX(-5deg);
+  }
+  40%, 60% {
+    transform: translate3d(60px, 0, 0) rotate(-8deg) skewX(-8deg);
+  }
+}
+
+@keyframes bounce {
+  10% {
+    transform: scale(1.4, 0.5);
+  }
+  40% {
+    transform: scale(0.5, 1.4);
+  }
+  50% {
+    transform: scale(1.2, 0.7);
+  }
+  60% {
+    transform: scale(0.7, 1.2);
+  }
+  70% {
+    transform: scale(1.1, 0.8);
+  }
+  70% {
+    transform: scale(0.8, 1.1);
+  }
+  80% {
+    transform: scale(1, 0.9);
+  }
+  90% {
+    transform: scale(1, 1);
+  }
+}
+
+.shake {
+  color: rgba(211, 70, 19, 0.75);
+  text-shadow: 1px 1px 1px black;
+  animation: shake 1s;
+  animation-iteration-count: 1;
+  font-size: 30px;
+  transition:font-size 1s;
+  -moz-transition:font-size 1s; /* Firefox 4 */
+  -webkit-transition:font-size 1s; /* Safari and Chrome */
+}
+
+.bounce {
+  color:  rgba(92, 184, 92,0.75);
+  text-shadow: 1px 1px 1px black;
+  animation: bounce 1s;
+  animation-iteration-count: 1;
+  font-size: 30px;
+  transition:font-size 1s;
+  -moz-transition:font-size 1s; /* Firefox 4 */
+  -webkit-transition:font-size 1s; /* Safari and Chrome */
+}
