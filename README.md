@@ -9,7 +9,7 @@ Most of the changes done by me is the app.js and styling, very little changes we
 Loading the Game
 ==============================
 
-Visit http://hectormov.github.com/arcade-game
+Visit https://hectormov.github.io/arcade-game/
 The game loads automatically, all you have to do is start playing right away.
 
 How to Play
