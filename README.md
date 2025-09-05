@@ -19,4 +19,4 @@ Use the keyboard arrows to move UP, LEFT, RIGHT or DOWN to get your player to th
 
 The game is reset every time you pass a level or you are hit by an enemy.
 
-The difficulty will increase as you pass each level but it will decrease every time you lose...
+The difficulty will increase as you pass each level but it will decrease every time you lose.
